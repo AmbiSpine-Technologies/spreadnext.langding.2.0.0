@@ -2,13 +2,20 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Navigation ke liye import
+import { useRouter, usePathname } from "next/navigation"; // Navigation ke liye import
 import Button from "../common/button";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter(); // Router instance
+   const pathname = usePathname(); // Current URL path check karne ke liye
+
+  // Check if current page is Home
+  const isHomePage = pathname === "/";
+
+  const textColor = isHomePage ? "text-white" : "text-black";
+  const borderOverlay = isHomePage ? "bg-white/20" : "bg-black/10";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -24,10 +31,12 @@ export default function Header() {
   const links = ["Campuses", "Talents", "Recruiters", "Services", "News & Updates"];
 
   return (
-    <nav className={`fixed w-full top-0 left-0 z-[100] transition-all duration-300 ${
-      scrolled ? "bg-black/80 backdrop-blur-md py-3" : "bg-transparent py-5"
+    <nav className={`fixed w-full top-0 left-0 z-[100] border border-gray-300 transition-all duration-300 ${
+      scrolled 
+        ? "bg-white/80 backdrop-blur-md py-3 shadow-sm " 
+        : `bg-transparent py-5 ${isHomePage ? "border-transparent" : ""}`
     }`}>
-      <div className=" max-w-[1440px] mx-auto px-6 md:px-10 flex items-center justify-between">
+      <div className=" max-w-[1680px] mx-auto px-6 md:px-10 flex items-center justify-between">
         
         {/* Left Side: Logo & Main Nav */}
         <div className="flex items-center gap-12">
@@ -38,7 +47,7 @@ export default function Header() {
             <span className="text-[#0013E3] font-bold text-xl">Spreadnext</span>
           </Link>
 
-          <div className="hidden lg:flex gap-8 items-center text-xs font-medium text-white/90">
+          <div className={`hidden lg:flex gap-8 items-center text-xs font-medium ${textColor}`}>
             {links.map(link => (
               <Link key={link} href={`/${link.toLowerCase().replace(/ & /g, "-")}`} className="hover:text-white text-lg font-medium transition-colors">
                 {link}
@@ -48,7 +57,7 @@ export default function Header() {
         </div>
 
         {/* Right Side: Auth & Navigation */}
-        <div className="hidden lg:flex items-center gap-6 text-white">
+        <div className={`hidden lg:flex items-center gap-6  ${textColor}`}>
           <div className="flex items-center gap-4 ">
             <Link href="/jobs" className="hover:opacity-80  text-lg font-medium ">Find Jobs</Link>
             <span className="text-lg font-medium">|</span>
@@ -60,13 +69,13 @@ export default function Header() {
         </div>
 
         {/* Mobile Toggle */}
-        <button className="lg:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
+        <button className={`lg:hidden ${textColor}`} onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 bg-black z-[-1] flex flex-col px-10 items-start justify-center gap-6 text-sm text-white transition-all duration-500 ${
+      <div className={`fixed inset-0 bg-black z-[-1] flex flex-col px-10 items-start justify-center gap-6 text-sm ${textColor} transition-all duration-500 ${
         isOpen ? "-translate-x-0 opacity-100" : "translate-x-full opacity-0"
       } lg:hidden`}>
         {links.map(link => (

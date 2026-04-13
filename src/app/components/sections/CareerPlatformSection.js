@@ -1,62 +1,90 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { MoveRight } from "lucide-react";
+import { Counter } from "@/utils/counter";
+import Button from "../common/button";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/animations/animation"; 
 
-const stats = [
-  { value: "82%", label: "Average placement rate across Spreadnext campuses" },
-  { value: "3.2x", label: "More employer connections per student" },
-  { value: "42 hrs", label: "Average time from drive to offer letter" },
-  { value: "50+", label: "Colleges already on the platform" },
+const heroStats = [
+  { value: 82, label: "Average placement rate across Spreadnext campuses", suffix: "%" },
+  { value: 3.2, label: "More employer connections per student", suffix: "x", isDecimal: true },
+  { value: 42, label: "Average time from drive to offer letter", suffix: " hrs" },
+  { value: 50, label: "Colleges already on the platform", suffix: "+" },
 ];
 
 export default function CareerPlatformSection() {
   return (
-    <section className="bg-white py-20 px-6 md:px-12 lg:px-24">
-      <div className="max-w-[1440px] mx-auto relative">
+   <section className="bg-white py-10 px-6 md:px-12 lg:px-24">
+      <div className="">
         
         {/* Main Banner Layout */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
+        <div className="flex flex-col lg:flex-row items-center  relative">
           
           {/* Left Side: Dark Blue Rounded Banner */}
-          <div className="bg-[#3D447E] text-white p-10 md:p-16 lg:p-20 rounded-[2.5rem] lg:w-[60%] w-full flex-shrink-0 z-10">
-            <h2 className="text-3xl md:text-5xl font-semibold leading-tight mb-6">
-              A career platform built for India's <br /> next generation
+          <motion.div 
+            variants={fadeIn("right", 0.2)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }} 
+            className="bg-[#3D447E]  text-white p-10 md:p-16 lg:px-20 lg:py-28 rounded-[2.5rem] mt-24 lg:mt-40 lg:w-[60%] w-full flex-shrink-0 z-10" 
+            >
+            <div className="max-w-xl ">
+          <h2 className="text-3xl lg:text-4xl font-semibold leading-tight mb-6">
+              A career platform built for India's <br className="hidden md:block" /> next generation
             </h2>
-            <p className="text-gray-200 text-sm md:text-base mb-12 max-w-2xl">
+            <p className="text-gray-200 text-sm md:text-base mb-12 max-w-2xl leading-relaxed">
               Spreadnext helps talent discover jobs, collaborations, and learning
               paths while helping companies source, assess, and grow teams
               through one AI-driven ecosystem.
             </p>
-            <button className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#0013E3] text-white font-semibold rounded-full hover:bg-blue-800 transition duration-300">
-              Request a campus demo <MoveRight className="w-5 h-5" />
-            </button>
-          </div>
+           
+                <Button 
+                            // onClick={handleSignup} 
+                            className="text-lg !h-11 !py-2.5" // Cleaned redundant MT here
+                          >
+                              Request a campus demo  <MoveRight className="w-5 h-5 mx-4" />
+                          </Button>
+            </div>
+         
+          </motion.div>
 
-          {/* Right Side: Overlay Image with Staggered Effect */}
-          <div className="lg:w-[55%] w-full lg:-ml-[15%] flex-shrink-0 z-20">
-            <div className="relative aspect-[16/10] w-full rounded-[2.5rem] overflow-hidden shadow-2xl">
+          {/* Right Side: Overlay Image */}
+          <motion.div 
+            variants={fadeIn("left", 0.4)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }} 
+            className="lg:w-[55%] w-full lg:-ml-[15%] mt-[-50px] lg:mt-8 flex-shrink-0 z-20">
+            <div className="relative aspect-[16/9] w-full rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] border-[6px] border-white lg:border-none">
               <Image
-                src="/compus-platform-hero.png" // Replace with your image path
+                src="/compus-platform-hero.png" 
                 alt="Students collaborating on campus"
                 fill
                 className="object-cover"
                 priority
               />
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-20 text-center max-w-6xl mx-auto">
-          {stats.map((stat, idx) => (
-            <div key={idx} className="flex flex-col items-center">
-              <h4 className="text-5xl md:text-6xl font-extrabold text-[#1B1B24] mb-3 tracking-tighter">
-                {stat.value}
-              </h4>
-              <p className="text-gray-500 text-sm md:text-base leading-relaxed max-w-[220px]">
+        {/* Stats Grid - Same as Image Design */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-4 max-w-8xl mx-auto mt-16 px-4">
+          {heroStats.map((stat, i) => (
+            <motion.div  key={i} className="flex flex-col items-center text-center">
+              <span className="text-4xl md:text-6xl font-extrabold text-[#1B1B24] tracking-tighter">
+                <Counter 
+                  target={stat.value} 
+                  suffix={stat.suffix} 
+                  decimals={stat.isDecimal ? 1 : 0} 
+                />
+              </span>
+              <span className="text-[#0663ED] font-medium mt-4 text-sm md:text-[15px] leading-snug max-w-[200px]">
                 {stat.label}
-              </p>
-            </div>
+              </span>
+            </motion.div>
           ))}
         </div>
       </div>

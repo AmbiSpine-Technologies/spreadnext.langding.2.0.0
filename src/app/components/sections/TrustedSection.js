@@ -2,14 +2,13 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-
+import { Counter } from "@/utils/counter";
 const stats = [
   { label: "Colleges", value: 1000, suffix: "+" },
   { label: "Expert Hiring", value: 100, suffix: "+" },
   { label: "Cities Presence", value: 50, suffix: "+" },
   { label: "Companies", value: 500, suffix: "+" },
 ];
-
 // Split your logos into two sets for two rows
 const row1 = [
   "Adobe.svg", "Docker.svg", "Dribbble.svg", "Elastic.svg", 
@@ -55,25 +54,8 @@ const MarqueeRow = ({ items, direction = "left" }) => {
     </div>
   );
 };
-const Counter = ({ target }) => {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    let start = 0;
-    const duration = 2000; // 2 seconds
-    const increment = target / (duration / 16);
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 16);
-    return () => clearInterval(timer);
-  }, [target]);
-  return <span>{count}</span>;
-};
+
+
 
 const logos = [
   "Adobe.svg", "Docker.svg", "Dribbble.svg", "Elastic.svg", "Gitlab.svg", 
@@ -114,7 +96,7 @@ export default function TrustedSection() {
           {stats.map((stat, i) => (
             <div key={i} className="flex flex-col">
               <span className="text-3xl md:text-4xl font-extrabold text-[#1B1B24]">
-                <Counter target={stat.value} />{stat.suffix}
+                <Counter target={stat.value} suffix={stat.suffix}  />
               </span>
               <span className="text-[#0663ED] font-medium mt-3 text-lg">{stat.label}</span>
             </div>
