@@ -7,21 +7,52 @@ import Button from "../common/button";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [heroType, setHeroType] = useState("normal");
+const [isHeroVisible, setIsHeroVisible] = useState(false);
+  
   const router = useRouter(); // Router instance
    const pathname = usePathname(); // Current URL path check karne ke liye
+ 
+  const isDarkHero = isHeroVisible && heroType === "media";
 
-  // Check if current page is Home
-  const isHomePage = pathname === "/";
+const textColor = isDarkHero ? "text-white" : "text-black";
 
-  const textColor = isHomePage ? "text-white" : "text-black";
-  const borderOverlay = isHomePage ? "bg-white/20" : "bg-black/10";
+const bgStyle = isDarkHero
+  ? "bg-transparent !border-b-0"
+  : "bg-white border-gray-300";
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+
+ useEffect(() => {
+    const hero = document.getElementById("hero-section");
+
+    if (!hero) {
+      setIsHeroVisible(false);
+      setHeroType("normal");
+      return;
+    }
+
+    // ✅ Detect hero type (manual + fallback)
+    const type =
+      hero.getAttribute("data-hero") ||
+      (hero.querySelector("video") || hero.querySelector("img")
+        ? "media"
+        : "normal");
+
+    setHeroType(type);
+
+    // ✅ Observe hero visibility
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeroVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(hero);
+
+    return () => observer.disconnect();
+  }, [pathname]);
+
 
   const handleSignup = () => {
     setIsOpen(false); // Mobile menu band karne ke liye
@@ -31,12 +62,8 @@ export default function Header() {
   const links = ["Campuses", "Talents", "Recruiters", "Services", "News & Updates"];
 
   return (
-    <nav className={`fixed w-full top-0 left-0 z-[100] border border-gray-300 transition-all duration-300 ${
-      scrolled 
-        ? "bg-white/80 backdrop-blur-md py-3 shadow-sm " 
-        : `bg-transparent py-5 ${isHomePage ? "border-transparent" : ""}`
-    }`}>
-      <div className=" max-w-[1680px] mx-auto px-6 md:px-10 flex items-center justify-between">
+    <nav className={`fixed w-full top-0 left-0 z-[100]  border-b transition-all duration-300 ${bgStyle}`}>
+      <div className=" max-w-[1680px] mx-auto py-5 px-6 md:px-10 flex items-center justify-between">
         
         {/* Left Side: Logo & Main Nav */}
         <div className="flex items-center gap-12">
@@ -49,7 +76,7 @@ export default function Header() {
 
           <div className={`hidden lg:flex gap-8 items-center text-xs font-medium ${textColor}`}>
             {links.map(link => (
-              <Link key={link} href={`/${link.toLowerCase().replace(/ & /g, "-")}`} className="hover:text-white text-lg font-medium transition-colors">
+              <Link key={link} href={`/${link.toLowerCase().replace(/ & /g, "-")}`} className=" text-lg font-medium transition-colors">
                 {link}
               </Link>
             ))}

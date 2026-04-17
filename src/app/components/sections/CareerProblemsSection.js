@@ -1,7 +1,8 @@
 "use client";
-import React from "react";
+import { useState } from "react"; 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
 import { fadeIn } from "@/animations/animation"; 
 
 const problemsData = [
@@ -26,6 +27,7 @@ const problemsData = [
 ];
 
 export default function CareerProblemsSection() {
+  const [isDone, setIsDone] = useState(false);
   return (
     <section className="bg-[#FAFAFA] py-24 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto">
@@ -38,8 +40,21 @@ export default function CareerProblemsSection() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1B1B24] tracking-tight leading-tight">
-            A career platform built for India's <br className="hidden md:block" /> next generation
+          <h2 className="text-4xl md:text-5xl py-6 font-bold text-[#1B1B24] tracking-tight leading-tight">
+<Typewriter
+        words={["A career platform built for India's next generation"]}
+        // loop={1} ensures it stops at the end of the first iteration
+        loop={1}
+        // Very fast speed as per your requirement
+        typeSpeed={40} 
+        deleteSpeed={50}
+        delaySpeed={1000}
+        // Only show cursor if typing is NOT done
+        cursor={!isDone}
+        cursorStyle="|"
+        // triggers when the entire loop (1 time) is finished
+        onLoopDone={() => setIsDone(true)}
+      />
           </h2>
         </motion.div>
 

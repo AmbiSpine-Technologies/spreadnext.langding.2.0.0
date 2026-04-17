@@ -12,14 +12,14 @@ export default function Home() {
   return (
     <div className="">
       <main >
-    {/* <Header /> */}
+    
        <Hero />
        <DigitalHomeSection />
        <FuelYourCareer />
        <ServicesSection />
        <TestimonialsSection />
       <TrustedSection />
-      {/* <Footer /> */}
+  
      
       </main>
     </div>

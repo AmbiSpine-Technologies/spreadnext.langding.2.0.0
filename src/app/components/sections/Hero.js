@@ -30,7 +30,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero-section" data-hero="media" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video (stays behind animations) */}
       <video 
         autoPlay muted loop playsInline 

@@ -40,10 +40,11 @@ export default function CareerPlatformSection() {
               paths while helping companies source, assess, and grow teams
               through one AI-driven ecosystem.
             </p>
+            
            
                 <Button 
                             // onClick={handleSignup} 
-                            className="text-lg !h-11 !py-2.5" // Cleaned redundant MT here
+                            className="!bg-[#0A66C2] !font-semibold h-14" // Cleaned redundant MT here
                           >
                               Request a campus demo  <MoveRight className="w-5 h-5 mx-4" />
                           </Button>
