@@ -53,18 +53,17 @@ export default function Hero() {
           {/* 1. Animated Heading */}
           <motion.h1 
             variants={itemVariants}
-            className="text-4xl md:text-7xl font-bold text-white leading-tight"
+            className="text-4xl md:text-5xl font-bold text-white leading-tight"
           >
-            Where careers, hiring, and business <br className="hidden md:block"/> 
-            <span className="text-white/90">growth connect</span>
+            A career platform built for India's next generation 
           </motion.h1>
 
           {/* 2. Animated Paragraph */}
           <motion.p 
             variants={itemVariants}
-            className="mt-6 text-gray-200 text-lg md:text-xl max-w-2xl mx-auto"
+            className="mt-6 text-gray-200 text-base md:text-lg max-w-4xl mx-auto"
           >
-            India's AI-driven ecosystem for talent and recruiters.
+             Spreadnext helps talent discover jobs, collaborations, and learning paths while helping companies source, assess, and grow teams through one AI-driven ecosystem.
           </motion.p>
           
           {/* 3. Animated Button with Hover Effect */}
@@ -78,7 +77,7 @@ export default function Hero() {
             >
               <Button 
                 onClick={handleSignup} 
-                className="text-lg px-12 py-6" // Cleaned redundant MT here
+                className="text-lg px-12 py-4" // Cleaned redundant MT here
               >
                 Get started
               </Button>

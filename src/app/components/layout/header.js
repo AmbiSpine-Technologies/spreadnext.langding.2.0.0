@@ -63,20 +63,20 @@ const bgStyle = isDarkHero
 
   return (
     <nav className={`fixed w-full top-0 left-0 z-[100]  border-b transition-all duration-300 ${bgStyle}`}>
-      <div className=" max-w-[1680px] mx-auto py-5 px-6 md:px-10 flex items-center justify-between">
+      <div className=" max-w-[1500px] mx-auto py-2 mt-1 px-6 md:px-20 flex items-center justify-between">
         
         {/* Left Side: Logo & Main Nav */}
         <div className="flex items-center gap-12">
           <Link href="/" className="flex items-center gap-3">
              <div className=" rounded-md flex items-center justify-center">
-                <img src="/spreads.svg" alt="" className="w-10 h-10  object-contain " />
+                <img src="/spreads.svg" alt="" className="w-8 h-8  object-contain " />
              </div>
             <span className="text-[#0013E3] font-bold text-xl">Spreadnext</span>
           </Link>
 
           <div className={`hidden lg:flex gap-8 items-center text-xs font-medium ${textColor}`}>
             {links.map(link => (
-              <Link key={link} href={`/${link.toLowerCase().replace(/ & /g, "-")}`} className=" text-lg font-medium transition-colors">
+              <Link key={link} href={`/${link.toLowerCase().replace(/ & /g, "-")}`} className=" text-sm font-medium transition-colors">
                 {link}
               </Link>
             ))}
@@ -86,13 +86,13 @@ const bgStyle = isDarkHero
         {/* Right Side: Auth & Navigation */}
         <div className={`hidden lg:flex items-center gap-6  ${textColor}`}>
           <div className="flex items-center gap-4 ">
-            <Link href="/jobs" className="hover:opacity-80  text-lg font-medium ">Find Jobs</Link>
+            <Link href="/jobs" className="hover:opacity-80  text-sm font-medium ">Find Jobs</Link>
             <span className="text-lg font-medium">|</span>
-            <Link href="/login" className="hover:opacity-80 text-lg font-medium ">Login</Link>
+            <Link href="/login" className="hover:opacity-80 text-sm font-medium ">Login</Link>
           </div>
           
           {/* Signup Button with Routing */}
-          <Button onClick={handleSignup}>Signup</Button>
+          <Button className="!text-sm" onClick={handleSignup}>Signup</Button>
         </div>
 
         {/* Mobile Toggle */}

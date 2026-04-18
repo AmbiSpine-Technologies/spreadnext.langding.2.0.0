@@ -1,4 +1,20 @@
 // src/lib/animations.js
+// MNC Standard Animation Variants
+export const staggerContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // Ek ke baad ek aayenge
+    },
+  },
+};
+
+export const itemVariant = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 export const fadeIn = (direction = "up", delay = 0) => {
   return {
     hidden: {

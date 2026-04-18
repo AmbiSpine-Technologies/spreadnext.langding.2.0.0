@@ -6,8 +6,8 @@ import DigitalHomeSection from "@/app/components/sections/DigitalHomeSection";
 import FuelYourCareer from "@/app/components/sections/FuelYourCareer";
 import ServicesSection from "@/app/components/sections/ServicesSection";
 import TestimonialsSection from '@/app/components/sections/TestimonialsSection'
-import Footer from '@/app/components/layout/footer';
-
+import TrendingJobs from '@/app/components/TrendingJobs' 
+import { BuildMatch } from '@/app/components/sections/BuildMatch'
 export default function Home() {
   return (
     <div className="">
@@ -17,6 +17,8 @@ export default function Home() {
        <DigitalHomeSection />
        <FuelYourCareer />
        <ServicesSection />
+       <TrendingJobs />
+       <BuildMatch />
        <TestimonialsSection />
       <TrustedSection />
   

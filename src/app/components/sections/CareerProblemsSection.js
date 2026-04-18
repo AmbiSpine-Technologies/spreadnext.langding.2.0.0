@@ -30,7 +30,7 @@ export default function CareerProblemsSection() {
   const [isDone, setIsDone] = useState(false);
   return (
     <section className="bg-[#FAFAFA] py-24 px-6 md:px-12 lg:px-24">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         
         {/* Professional Header */}
         <motion.div 
@@ -38,9 +38,9 @@ export default function CareerProblemsSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-3 max-w-2xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl py-6 font-bold text-[#1B1B24] tracking-tight leading-tight">
+          <h2 className=" txt-3xl md:text-[40px] py-6 font-medium text-[#1B1B24] tracking-tight leading-tight">
 <Typewriter
         words={["A career platform built for India's next generation"]}
         // loop={1} ensures it stops at the end of the first iteration
@@ -59,7 +59,7 @@ export default function CareerProblemsSection() {
         </motion.div>
 
         {/* Top Grid (2 items) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 mb-16">
           {problemsData.slice(0, 2).map((item, index) => (
             <ProblemCard key={item.id} data={item} delay={0.3 + index * 0.2} />
           ))}
@@ -94,11 +94,11 @@ function ProblemCard({ data, delay }) {
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
-      <div className="space-y-3">
-        <h3 className="text-2xl font-bold text-[#1B1B24]">
+      <div className="space-y-1">
+        <h3 className="text-2xl font-medium text-[#1B1B24]">
           {data.title}
         </h3>
-        <p className="text-gray-500 text-base md:text-lg leading-relaxed font-medium">
+        <p className="text-gray-500 text-base leading-relaxed font-medium">
           {data.description}
         </p>
       </div>

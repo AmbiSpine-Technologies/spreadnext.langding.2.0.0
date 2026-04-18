@@ -1,152 +1,88 @@
-// "use client";
-// import React from "react";
-
-// export default function () {
-//   return (
-//     <section className="w-full bg-[#F3F4F6] py-20 px-6 lg:px-24">
-//       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-
-//         {/* LEFT SIDE */}
-//         <div className="relative flex flex-col items-center">
-
-//           {/* TOP BAR */}
-//           <div className="w-full max-w-[320px] mb-6">
-//             <div className="flex justify-between text-sm text-gray-600 mb-2">
-//               <span>Skills Completeness</span>
-//               <span>70%</span>
-//             </div>
-//             <div className="w-full h-2 bg-gray-300 rounded-full">
-//               <div className="w-[70%] h-full bg-[#FF6A3D] rounded-full"></div>
-//             </div>
-//           </div>
-
-//           {/* IMAGE */}
-//           <img
-//             src="/employer2.png" // replace with your image
-//             alt="score illustration"
-//             className="w-[260px] sm:w-[300px] md:w-[340px]"
-//           />
-
-//           {/* BOTTOM BARS */}
-//           <div className="w-full max-w-[320px] mt-6 space-y-5">
-
-//             {/* Job alignment */}
-//             <div>
-//               <div className="flex justify-between text-sm text-gray-600 mb-2">
-//                 <span>Job market alignment</span>
-//                 <span>66%</span>
-//               </div>
-//               <div className="w-full h-2 bg-gray-300 rounded-full">
-//                 <div className="w-[66%] h-full bg-[#27C4C9] rounded-full"></div>
-//               </div>
-//             </div>
-
-//             {/* Profile strength */}
-//             <div>
-//               <div className="flex justify-between text-sm text-gray-600 mb-2">
-//                 <span>Profile Strength</span>
-//                 <span>50%</span>
-//               </div>
-//               <div className="w-full h-2 bg-gray-300 rounded-full">
-//                 <div className="w-[50%] h-full bg-[#F4A300] rounded-full"></div>
-//               </div>
-//             </div>
-
-//           </div>
-//         </div>
-
-//         {/* RIGHT SIDE */}
-//         <div className="max-w-xl">
-
-//           <h2 className="text-3xl md:text-4xl font-bold text-[#1B1B24] leading-tight mb-6">
-//             Know exactly where you stand — before employers do
-//           </h2>
-
-//           <p className="text-gray-500 text-lg leading-relaxed mb-8">
-//             Most job seekers apply blind. They don't know why they're getting
-//             rejected. The{" "}
-//             <span className="text-[#0013E3] font-semibold">
-//               Spreadnext Career Readiness Score
-//             </span>{" "}
-//             changes that. It analyses your profile across skills, projects,
-//             experience, and goals — and tells you exactly what to fix before
-//             your next application.
-//           </p>
-
-//           <button className="bg-[#C9D6E4] hover:bg-[#b8c7d8] text-[#1B1B24] px-8 py-3 rounded-full font-semibold">
-//             See Your Score
-//           </button>
-
-//         </div>
-
-//       </div>
-//     </section>
-//   );
-// }
 
 "use client";
 import React from "react";
-
+import { motion } from "framer-motion";
+import { fadeIn, scaleIn } from "@/animations/animation"; // Ajusta la ruta según tu proyecto
+import { Counter } from "@/utils/counter"; // Ajusta la ruta
+import Button from "../components/common/button";
 export default function ScoreSection() {
+  const skillsData = [
+    { label: "Skills Completeness", value: 70, color: "#FF6A3D", position: "top-[-0px] left-[-30px]" },
+    { label: "Job market alignment", value: 66, color: "#27C4C9", position: "bottom-[20px] left-[-80px]" },
+    { label: "Profile Strength", value: 50, color: "#F4A300", position: "bottom-[-40px] left-[60px]" },
+  ];
+
   return (
-    <section className="w-full bg-[#EEF0F3] py-24">
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-20 px-6">
+    <section className="w-full bg-[#EEF0F3] py-24 px-20 overflow-hidden">
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16 px-6">
+        
+        {/* LEFT SIDE (ILLUSTRATION + ANIMATED BARS) */}
+        <div className="relative w-full lg:w-[45%] flex justify-center items-center min-h-[400px]">
+          
+          {/* Illustration Container */}
+          <motion.div
+            variants={scaleIn("none", 0.2)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="relative z-10"
+          >
+            <img
+              src="/employer2.png"
+              alt="illustration"
+              className="w-[300px] md:w-[350px] object-contain"
+            />
+          </motion.div>
 
-        {/* LEFT SIDE (ILLUSTRATION + BARS) */}
-        <div className="relative w-full lg:w-[45%] flex justify-center">
-
-          {/* TOP BAR */}
-          <div className="absolute top-0 left-10 w-[260px]">
-            <div className="flex justify-between text-[13px] text-gray-600 mb-1">
-              <span>Skills Completeness</span>
-              <span>70%</span>
-            </div>
-            <div className="h-[6px] bg-gray-300 rounded-full">
-              <div className="h-full w-[70%] bg-[#FF6A3D] rounded-full"></div>
-            </div>
-          </div>
-
-          {/* IMAGE */}
-          <img
-        src="/employer2.png" 
-            alt="illustration"
-            className="w-[260px] mt-10"
-          />
-
-          {/* BOTTOM LEFT BAR */}
-          <div className="absolute bottom-6 left-0 w-[260px]">
-            <div className="flex justify-between text-[13px] text-gray-600 mb-1">
-              <span>Job market alignment</span>
-              <span>66%</span>
-            </div>
-            <div className="h-[6px] bg-gray-300 rounded-full">
-              <div className="h-full w-[66%] bg-[#27C4C9] rounded-full"></div>
-            </div>
-          </div>
-
-          {/* BOTTOM RIGHT BAR */}
-          <div className="absolute bottom-[-30px] left-24 w-[260px]">
-            <div className="flex justify-between text-[13px] text-gray-600 mb-1">
-              <span>Profile Strength</span>
-              <span>50%</span>
-            </div>
-            <div className="h-[6px] bg-gray-300 rounded-full">
-              <div className="h-full w-[50%] bg-[#F4A300] rounded-full"></div>
-            </div>
-          </div>
+          {/* Floating Progress Bars */}
+          {skillsData.map((skill, index) => (
+            <motion.div
+              key={index}
+              variants={fadeIn("up", 0.4 + index * 0.2)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className={`absolute ${skill.position} z-20 w-[240px] md:w-[280px] bg-transparent`}
+            >
+              <div className="flex justify-between items-center text-[14px] font-medium text-gray-600 mb-2">
+                <span className="whitespace-nowrap">{skill.label}</span>
+                <span className="font-bold text-gray-800">
+                  <Counter target={skill.value} suffix="%" duration={2000} />
+                </span>
+              </div>
+              
+              {/* Outer Bar */}
+              <div className="h-[10px] w-full bg-white/50 backdrop-blur-sm border border-gray-200 rounded-full overflow-hidden shadow-sm">
+                {/* Inner Animated Bar */}
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${skill.value}%` }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 2, ease: "easeOut", delay: 0.5 }}
+                  style={{ backgroundColor: skill.color }}
+                  className="h-full rounded-full"
+                />
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         {/* RIGHT SIDE CONTENT */}
-        <div className="w-full lg:w-[55%] max-w-xl">
-
-          <h2 className="text-[32px] md:text-[38px] font-bold text-[#1B1B24] leading-tight mb-5">
+        <motion.div 
+          variants={fadeIn("left", 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="w-full lg:w-[50%] max-w-2xl"
+        >
+          <h2 className="text-[36px] md:text-3xl font-medium text-[#1B1B24] leading-[1.1] mb-6">
             Know exactly where you stand — before employers do
           </h2>
 
-          <p className="text-gray-500 text-[16px] leading-relaxed mb-7">
+          <p className="text-gray-600 text-[18px] leading-relaxed mb-8">
             Most job seekers apply blind. They don't know why they're getting
             rejected. The{" "}
-            <span className="text-[#0013E3] font-semibold">
+            <span className="text-[#0013E3] font-bold">
               Spreadnext Career Readiness Score
             </span>{" "}
             changes that. It analyses your profile across skills, projects,
@@ -154,11 +90,10 @@ export default function ScoreSection() {
             next application.
           </p>
 
-          <button className="bg-[#C9D6E4] text-[#1B1B24]  px-7 py-3 rounded-full font-medium hover:bg-[#b8c7d8] transition">
+          <button className="bg-[#C9D6E4] text-[#1B1B24] px-6 py-2.5 rounded-full font-medium text-lg  hover:bg-[#b8c7d8] hover:cursor-pointer transition-all transform  ">
             See Your Score
           </button>
-
-        </div>
+        </motion.div>
       </div>
     </section>
   );

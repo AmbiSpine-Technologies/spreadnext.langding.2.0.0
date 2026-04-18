@@ -46,7 +46,7 @@ export default function ServicesSection() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold text-[#1B1B24] mb-4"
+            className="text-3xl md:text-4xl font-bold text-[#1B1B24] mb-4"
           >
             Discover business & compliance services
           </motion.h2>
@@ -104,8 +104,8 @@ export default function ServicesSection() {
                     />
                   </div>
                   <div>
-                    <h6 className="font-bold text-base text-[#1B1B24] text-lg mb-1">{service.title}</h6>
-                    <p className="text-gray-500 text-xs leading-relaxed">{service.description}</p>
+                    <h6 className="font-medium text-base text-[#1B1B24]  mb-1">{service.title}</h6>
+                    <p className="text-gray-500 text-sm leading-relaxed">{service.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -127,8 +127,8 @@ export default function ServicesSection() {
                   />
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#1B1B24] text-lg mb-1">Specialized & Emerging Services</h3>
-                  <p className="text-gray-500 text-xs">NRI taxation, ESG reporting, FSSAI, IEC, NGO registration</p>
+                  <h3 className="font-medium text-[#1B1B24] text-base mb-1">Specialized & Emerging Services</h3>
+                  <p className="text-gray-500 text-sm">NRI taxation, ESG reporting, FSSAI, IEC, NGO registration</p>
                 </div>
               </motion.div>
             </div>
@@ -137,10 +137,10 @@ export default function ServicesSection() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-20">
-          <Button className="bg-[#0663ED] hover:!bg-[#0663ED]  text-white rounded-full px-14 h-16 text-lg !font-semibold">
+          <Button className="bg-[#0663ED] hover:!bg-[#0663ED]  text-white rounded-full px-12 h-13 text-lg !font-semibold">
             Explore Business Services
           </Button>
-          <Button onClick={() => router.push("/contact-us")} className="bg-[#B5C1D3] hover:bg-[#c4d0e2] !text-[#000000] rounded-full px-14 h-16 text-lg !font-semibold">
+          <Button onClick={() => router.push("/contact-us")} className="bg-[#B5C1D3] hover:bg-[#c4d0e2] !text-[#000000] rounded-full px-12 h-13 text-lg !font-semibold">
             Talk to expert
           </Button>
         </div>

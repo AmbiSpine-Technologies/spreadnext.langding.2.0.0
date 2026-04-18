@@ -41,14 +41,14 @@ const features = [
 export default function JourneySection() {
   return (
     <section className="py-24 px-6 lg:px-28 bg-white">
-      <div className="">
+      <div className= "">
         {/* Section Header */}
                <motion.h2
           variants={fadeIn("up", 0.2)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold text-center text-[#1B1B24] mb-16 leading-tight"
+          className="text-3xl max-w-5xl mx-auto md:text-[44px] font-medium text-center text-[#1B1B24] mb-16 leading-tight"
         >
           Wherever you are in your journey —{" "}
           <span className="text-[#0013E3] font-bold">
@@ -57,7 +57,7 @@ export default function JourneySection() {
           has your next step.
         </motion.h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           {/* Left Side: Large Image */}
           <motion.div
             variants={fadeIn("left", 0.3)}
@@ -84,10 +84,10 @@ export default function JourneySection() {
                 viewport={{ once: true }}
                 className="bg-[#F9F6E9] p-8 rounded-[1.5rem] border border-transparent hover:border-[#0013E3]/10 transition-all cursor-default"
               >
-                <h4 className="text-[19px] font-bold text-[#1B1B24] mb-2">
+                <h4 className="text-base font-semibold text-[#1B1B24] ">
                   {item.title}
                 </h4>
-               <p className="text-gray-500 leading-relaxed text-sm sm:text-base">
+               <p className="text-gray-500  ">
   {item.desc}
 </p>
               </motion.div>

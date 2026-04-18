@@ -3,7 +3,7 @@ import React from "react";
 import { Brain, Activity, UserCog } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-
+import { FileUser } from 'lucide-react';
 const skillData = [
   {
     icon: <Brain size={32} />,
@@ -11,7 +11,7 @@ const skillData = [
     description: "Explore top skills in tech, product, design, business, and marketing — rotating based on market data",
   },
   {
-    icon: <Activity size={32} />,
+    icon: <FileUser size={32} />,
     title: "Skill Demand Heatmap",
     description: "Explore top skills in tech, product, design, business, and marketing — rotating based on market data",
   },
@@ -45,7 +45,7 @@ const itemVariants = {
 export default function FuelYourCareer() {
   return (
     <section className="bg-[#A66565] text-white px-6 py-16 sm:px-12 md:px-20 lg:px-32 overflow-hidden">
-      <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-12">
         
         {/* Left Section - Fades in from left */}
         <motion.div 
@@ -55,7 +55,7 @@ export default function FuelYourCareer() {
           viewport={{ once: true }}
           className="lg:w-[40%] w-full"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
             Fuel Your Career with <br /> Skills That Matter
           </h2>
           <p className="mb-8 text-lg opacity-90">
@@ -99,11 +99,11 @@ export default function FuelYourCareer() {
                 whileHover={{ y: -8, backgroundColor: "rgba(212, 139, 139, 0.7)" }}
                 className="bg-[#D48B8B8C] p-6 rounded-2xl shadow-lg backdrop-blur-sm transition-colors cursor-default"
               >
-                <div className="mb-4 flex justify-start items-center text-white">
+                <div className="mb-4 flex justify-center items-center text-white">
                   {item.icon}
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+                <div className="text-center">
+                  <h3 className="text-lg  font-bold mb-2">{item.title}</h3>
                   <p className="text-sm leading-relaxed opacity-80">{item.description}</p>
                 </div>
               </motion.div>

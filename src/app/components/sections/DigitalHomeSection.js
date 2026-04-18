@@ -123,7 +123,7 @@ const FeatureCard = ({ card, index }) => {
       className="flex flex-col items-start text-left max-w-[340px]"
     >
       {/* Image Container */}
-      <div className="w-full aspect-[4/3] relative rounded-2xl overflow-hidden mb-8">
+      <div className="w-full aspect-[4/4] relative rounded-2xl overflow-hidden mb-8">
         <Image
           src={card.image}
           alt={card.title}
@@ -133,17 +133,17 @@ const FeatureCard = ({ card, index }) => {
       </div>
 
       {/* Text Content */}
-      <h3 className="text-2xl font-bold text-gray-900 leading-tight mb-4">
+      <h3 className="text-xl font-semibold text-gray-900 leading-tight mb-2">
         {card.title}
       </h3>
-      <p className="text-gray-600 text-base leading-relaxed mb-6">
+      <p className="text-gray-600 text-sm leading-relaxed mb-6">
         {card.description}
       </p>
 
       {/* Action Button - Using your custom Button component */}
        <div className="w-full flex justify-center mt-auto">
         <Button 
-          className="bg-[#0663ED] hover:!bg-[#0651c2] rounded-full h-11 px-8 font-semibold text-white"
+          className="bg-[#0663ED] hover:!bg-[#0651c2] rounded-full  font-semibold text-white"
           onClick={() => window.location.href = card.route}
         >
           {card.buttonText}
@@ -186,7 +186,7 @@ return (
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="text-4xl md:text-5xl lg:text-6xl font-semibold text-black leading-tight text-center mb-24"
+        className="text-3xl md:text-4xl lg:text-6xl font-medium text-black leading-tight text-center mb-24"
       >
         Everything your career needs. <br /> In one place
       </motion.h2>

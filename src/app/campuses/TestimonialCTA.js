@@ -14,9 +14,9 @@ export default function TestimonialCTA() {
 
   return (
           <>
-  <section className="bg-[#f5e2aef0] py-24 px-24">
+  <section className="bg-[#f5e2aef0] py-24 px-10 lg:px-20">
       {/* Testimonials Grid */}
-      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-start gap-6 mb-3">
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-start gap-10 mb-3">
         {tpoData.map((item, i) => (
           <motion.div 
               key={i} 
@@ -25,17 +25,17 @@ export default function TestimonialCTA() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
-                className="bg-white p-8 rounded-2xl">
-            <div className="flex items-start gap-4 mb-4">
-          <div className='bg-gray-300 p-5 rounded-full'>
+                className="bg-white p-4 rounded-2xl">
+            <div className="flex items-start gap-2 mb-4">
+          <div className='bg-gray-300 p-3 rounded-full'>
                {getInitials(item.name)}
 
           </div>
               <div>
-                <h4 className="font-semibold text-lg text-gray-700">{item.name}</h4>
+                <h4 className="font-semibold text-base text-gray-700">{item.name}</h4>
                 <p className="text-xs text-gray-400 font-bold uppercase">{item.role}</p>
                 <p className="text-xs text-blue-600 font-bold">{item.location}</p>
-               <p className="text-base font-medium leading-relaxed mt-2 text-[#1B1B24]">"{item.quote}"</p>
+               <p className="text-sm font-medium leading-relaxed mt-2 text-[#1B1B24]">"{item.quote}"</p>
               
               </div>
             </div>
@@ -54,7 +54,7 @@ export default function TestimonialCTA() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
            className="text-center px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 tracking-tight">
+        <h2 className="text-4xl md:text-5xl font-medium text-black mb-6 tracking-tight">
           Ready to transform your placement cell?
         </h2>
         <p className="text-gray-500 text-lg mb-10">

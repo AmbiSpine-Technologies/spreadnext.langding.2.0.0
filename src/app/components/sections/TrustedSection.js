@@ -44,7 +44,7 @@ const MarqueeRow = ({ items, direction = "left" }) => {
             <img
               src={`/logo/${logo}`}
               alt={logo}
-              className="h-8 md:h-12 w-auto   transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110"
+              className="h-8 md:h-9 w-auto   transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110"
             />
             {/* Subtle glow on hover */}
             {/* <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/5 blur-xl transition-all rounded-full" /> */}
@@ -73,7 +73,7 @@ export default function TrustedSection() {
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, ease: "easeOut" }}
     viewport={{ once: true }}
-    className="text-4xl md:text-5xl text-[#1B1B24] font-bold"
+    className="text-3xl md:text-4xl text-[#1B1B24] font-semibold"
   >
     Trusted across <span className="text-blue-600">India</span>
   </motion.h2>
@@ -84,7 +84,7 @@ export default function TrustedSection() {
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
     viewport={{ once: true }}
-    className="text-[#0663ED] text-2xl mt-4"
+    className="text-[#0663ED] text-lg"
   >
     Where top companies hire and top colleges send their best.
   </motion.p>
@@ -95,15 +95,15 @@ export default function TrustedSection() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24 mx-10">
           {stats.map((stat, i) => (
             <div key={i} className="flex flex-col">
-              <span className="text-3xl md:text-4xl font-extrabold text-[#1B1B24]">
+              <span className="text-2xl md:text-4xl font-semibold text-[#1B1B24]">
                 <Counter target={stat.value} suffix={stat.suffix}  />
               </span>
-              <span className="text-[#0663ED] font-medium mt-3 text-lg">{stat.label}</span>
+              <span className="text-[#0663ED] font-medium  text-base">{stat.label}</span>
             </div>
           ))}
         </div>
 
-     <div className="space-y-4">
+     <div className="space-y-0">
         {/* Row 1: Moves Left */}
         <MarqueeRow items={row1} direction="left" />
         

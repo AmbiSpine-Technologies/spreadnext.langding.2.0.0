@@ -17,7 +17,7 @@ const heroStats = [
 
 export default function CareerPlatformSection() {
   return (
-   <section className="bg-white py-10 px-6 md:px-12 lg:px-24">
+   <section className="bg-white  px-6 md:px-12 lg:px-20">
       <div className="">
         
         {/* Main Banner Layout */}
@@ -29,13 +29,13 @@ export default function CareerPlatformSection() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }} 
-            className="bg-[#3D447E]  text-white p-10 md:p-16 lg:px-20 lg:py-28 rounded-[2.5rem] mt-24 lg:mt-40 lg:w-[60%] w-full flex-shrink-0 z-10" 
+            className="bg-[#3D447E]  text-white p-10 md:p-16 lg:px-20  rounded-[2.5rem] mt-24 lg:mt-40 lg:w-[65%] w-full flex-shrink-0 z-10" 
             >
-            <div className="max-w-xl ">
-          <h2 className="text-3xl lg:text-4xl font-semibold leading-tight mb-6">
+            <div className="max-w-lg ">
+          <h2 className="text-2xl lg:text-3xl font-semibold leading-tight mb-6">
               A career platform built for India's <br className="hidden md:block" /> next generation
             </h2>
-            <p className="text-gray-200 text-sm md:text-base mb-12 max-w-2xl leading-relaxed">
+            <p className="text-gray-200 text-sm md:text-base mb-10 max-w-2xl leading-relaxed">
               Spreadnext helps talent discover jobs, collaborations, and learning
               paths while helping companies source, assess, and grow teams
               through one AI-driven ecosystem.
@@ -44,7 +44,7 @@ export default function CareerPlatformSection() {
            
                 <Button 
                             // onClick={handleSignup} 
-                            className="!bg-[#0A66C2] !font-semibold h-14" // Cleaned redundant MT here
+                            className="!bg-[#0A66C2] !font-semibold py-1" // Cleaned redundant MT here
                           >
                               Request a campus demo  <MoveRight className="w-5 h-5 mx-4" />
                           </Button>
@@ -58,8 +58,8 @@ export default function CareerPlatformSection() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }} 
-            className="lg:w-[55%] w-full lg:-ml-[15%] mt-[-50px] lg:mt-8 flex-shrink-0 z-20">
-            <div className="relative aspect-[16/9] w-full rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] border-[6px] border-white lg:border-none">
+            className="lg:w-[45%] w-full lg:-ml-[10%] -mt-[70px] lg:mt-8 flex-shrink-0 z-20">
+            <div className="relative h-[360px] w-full rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] border-[6px] border-white lg:border-none">
               <Image
                 src="/compus-platform-hero.png" 
                 alt="Students collaborating on campus"
@@ -72,10 +72,10 @@ export default function CareerPlatformSection() {
         </div>
 
         {/* Stats Grid - Same as Image Design */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-4 max-w-8xl mx-auto mt-16 px-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-4 mt-16 px-4">
           {heroStats.map((stat, i) => (
-            <motion.div  key={i} className="flex flex-col items-center text-center">
-              <span className="text-4xl md:text-6xl font-extrabold text-[#1B1B24] tracking-tighter">
+            <motion.div  key={i} className="flex flex-col justify-start items-center text-center">
+              <span className="text-4xl md:text-4xl font-semibold text-[#1B1B24] tracking-tighter">
                 <Counter 
                   target={stat.value} 
                   suffix={stat.suffix} 
