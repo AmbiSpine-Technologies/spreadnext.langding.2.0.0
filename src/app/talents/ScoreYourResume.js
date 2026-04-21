@@ -33,7 +33,14 @@ export default function ScoreYourResume() {
           {/* Single Button - Updated to match design style */}
           <div className="flex flex-wrap gap-4">
             <Button className="!bg-[#0A66C2] hover:!bg-[#0554a3] !rounded-full   font-medium shadow-lg transition-transform active:scale-95">
-              Get Your Score
+                <a 
+    href="https://spreadnext.com/signin"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center"
+  >
+Get Your Score
+  </a>
             </Button>
           </div>
         </motion.div>
@@ -45,13 +52,13 @@ export default function ScoreYourResume() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="relative z-10 w-full"
+            className="relative z-10 w-full lg:max-w-[600px] h-auto lg:h-[480px]"
           >
             {/* Image centered and scaled */}
             <img
               src="/atsscoe.png" // Ensure this image is in your public folder
               alt="ATS Resume Score 85 out of 100 Dashboard"
-              className="w-full max-w-[600px] object-contain mx-auto drop-shadow-xl"
+              className="w-full h-full  mx-auto drop-shadow-xl"
             />
           </motion.div>
         </div>

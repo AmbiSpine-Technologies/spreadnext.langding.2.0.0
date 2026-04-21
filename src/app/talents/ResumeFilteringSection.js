@@ -37,12 +37,12 @@ export default function ResumeFilteringSection() {
           </h2>
           
           <motion.a
-            href="/templates"
+            href="/template"
             variants={scaleIn("none", 0.3)} // Button scales in with a slight delay
             initial="hidden"
             whileInView="show"
             whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-2 border-2 border-white/80 px-10 py-2.5 rounded-full font-bold text-base lg:text-lg hover:border-white transition-all duration-300"
+            className="inline-flex items-center gap-2 border-2 border-white/80 px-10 py-2.5 rounded-full font-medium text-base lg:text-lg hover:border-white transition-all duration-300"
           >
             Explore Templates <span className="text-xl">→</span>
           </motion.a>

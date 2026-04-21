@@ -137,10 +137,10 @@ export default function ServicesSection() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-20">
-          <Button className="bg-[#0663ED] hover:!bg-[#0663ED]  text-white rounded-full px-12 h-13 text-lg !font-semibold">
+          <Button onClick={() => router.push("/services")} className=" text-white rounded-full px-12 h-13 text-lg !font-medium">
             Explore Business Services
           </Button>
-          <Button onClick={() => router.push("/contact-us")} className="bg-[#B5C1D3] hover:bg-[#c4d0e2] !text-[#000000] rounded-full px-12 h-13 text-lg !font-semibold">
+          <Button onClick={() => router.push("/contact-us")} className="bg-[#c4d0e2]  hover:bg-[#c4d0e2] !text-[#010525] rounded-full px-12 h-13 text-lg !font-semibold">
             Talk to expert
           </Button>
         </div>

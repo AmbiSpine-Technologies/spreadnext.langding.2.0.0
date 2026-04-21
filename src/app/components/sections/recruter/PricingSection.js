@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "@/animations/animation";
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
 
 const PRICING_DATA = [
   {
@@ -18,14 +19,14 @@ const PRICING_DATA = [
       "Basic job board listing",
       "10 direct messages/month",
     ],
-    buttonText: "Post a Job",
+    buttonText: "Post a jobs free",
     isPopular: false,
     illustration: "/pricing-1.png", // Image from image_565ae4.png
     bgColor: "bg-[#FFF9E5]",
   },
   {
     plan: "Pro",
-    price: "₹2,999",
+    price: "0",
     period: "/ month",
     badge: "GROWTH",
     description: "If you aren't getting enough quality candidates through job posting alone and are hiring 3-10 people a year.",
@@ -38,14 +39,14 @@ const PRICING_DATA = [
       "Priority listing on job board",
       "Career readiness score per candidate",
     ],
-    buttonText: "Get started",
+    buttonText: "Contact with sales",
     isPopular: true,
     illustration: "/pricing-2.png",
     bgColor: "bg-[#E6FBFF]",
   },
   {
     plan: "Scale",
-    price: "Custom pricing",
+    price: "0",
     period: "",
     badge: "ENTERPRISE",
     description: "If your roles are hard to fill, you're running campus drives, or hiring more than 10 people a year at scale.",
@@ -58,7 +59,7 @@ const PRICING_DATA = [
       "Hiring analytics & reports",
       "Bulk hiring campaigns",
     ],
-    buttonText: "Contact us",
+    buttonText: "Contact with Sales",
     isPopular: false,
     illustration: "/pricing-3.png",
     bgColor: "bg-[#F5E6FF]",
@@ -66,6 +67,8 @@ const PRICING_DATA = [
 ];
 
 export default function PricingSection() {
+    const router = useRouter();
+    
   return (
     <section className="py-24 bg-white px-6 lg:px-28">
       <div className="max-w-7xl mx-auto">
@@ -110,8 +113,8 @@ export default function PricingSection() {
                   </span>
                   <h3 className="text-2xl font-bold mt-4 text-[#172127]">{item.plan}</h3>
                   <div className="flex items-baseline gap-1 mt-2">
-                    <span className="text-base font-medium ">{item.price}</span>
-                    <span className="text-gray-400 text-sm">{item.period}</span>
+                    {/* <span className="text-base font-medium ">{item.price}</span> */}
+                    {/* <span className="text-gray-400 text-sm">{item.period}</span> */}
                   </div>
                 </div>
 
@@ -134,7 +137,7 @@ export default function PricingSection() {
                   ))}
                 </div>
 
-                <button className={`w-full py-2 hover:cursor-pointer rounded-full font-bold transition-all ${
+                <button onClick={() => router.push("/contact-us")} className={`w-full py-2 hover:cursor-pointer rounded-full font-bold transition-all ${
                   item.isPopular 
                   ? "bg-[#0013E3] text-white " 
                   : "border-2 border-gray-200 text-gray-700 hover:bg-gray-50"

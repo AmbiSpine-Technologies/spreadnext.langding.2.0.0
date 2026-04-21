@@ -1,7 +1,46 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { 
+  Geist, 
+  Geist_Mono, 
+  Poppins, 
+  Inter, 
+  Open_Sans, 
+  Roboto 
+} from "next/font/google";
 import "./globals.css";
 import Footer from "./components/layout/footer";  
 import Header from "./components/layout/header";
+
+
+import ReduxProvider from "./components/ReduxProvider";
+import ConsentLoader from "./components/ConsentLoader";
+import AnalyticsLoader from "./components/AnalyticsLoader";
+import CookieWrapper from "./components/CookieWrapper";
+
+// 1. Poppins (Good for Headings & Hindi)
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin", "devanagari"],
+  variable: "--font-poppins",
+});
+
+// 2. Inter (Professional UI font)
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+// 3. Open Sans (Clean & highly readable)
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  variable: "--font-open-sans",
+});
+
+// 4. Roboto (Classic Android/Google style)
+const roboto = Roboto({
+  weight: ["400", "500", "700"],
+  subsets: ["latin"],
+  variable: "--font-roboto",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,12 +61,33 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`
+        ${geistSans.variable} 
+        ${poppins.variable} 
+        ${inter.variable} 
+        ${openSans.variable} 
+        ${roboto.variable} 
+        h-full antialiased
+      `}
+    
     >
       <body className="min-h-full flex flex-col">
-        <Header />
+        {/* <Header />
         {children}
-        <Footer />
+        <Footer /> */}
+         {/* ✅ Redux Provider wrap */}
+        <ReduxProvider>
+          <ConsentLoader />
+          <AnalyticsLoader />
+
+          <Header />
+
+          <CookieWrapper>
+            {children}
+          </CookieWrapper>
+
+          <Footer />
+        </ReduxProvider>
         </body>
     </html>
   );

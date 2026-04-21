@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "@/animations/animation";
 import Button from "../common/button";
+import { useRouter } from "next/navigation";
 
 const InfoCard = ({ stepNumber, stepText, title, description, points, children, colorClass }) => {
   return (
@@ -117,6 +118,7 @@ const SuccessMockup = () => (
   </div>
 );
 export const BuildMatch = () => {
+    const router = useRouter();
  const steps = [
     {
       stepNumber: "01",
@@ -176,7 +178,7 @@ export const BuildMatch = () => {
       </motion.div>
 
       <div className="flex justify-center  text-center mt-16">
-         <Button variant="primary" className="text-base py-2 px-6">
+         <Button onClick={() => router.push("https://spreadnext.com/signin")} variant="primary" className="">
             Build your profile — it takes 3 minutes →
          </Button>
       </div>

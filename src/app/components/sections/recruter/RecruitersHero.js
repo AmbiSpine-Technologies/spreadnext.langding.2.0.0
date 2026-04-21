@@ -5,8 +5,13 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "@/animations/animation";
 import Button from "../../common/button";
+import { useRouter } from 'next/navigation';
+
 
 export default function RecruitersHero() {
+  const router = useRouter();
+  
+
   return (
     <section className="relative pt-32 pb-20 mt-10 bg-white px-6 lg:px-28">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
@@ -28,8 +33,13 @@ export default function RecruitersHero() {
           </motion.p>
 
           <motion.div variants={fadeIn("up", 0.4)} className="flex gap-4">
-            <Button>Try Spreadnext</Button> {/* Updated text as per design */}
-            <button className="rounded-full h-12 px-10 font-semibold bg-[#E2E8F0] text-[#172127] hover:bg-gray-200 transition-all">
+            <Button> <a 
+  href="https://spreadnext.com/signin"
+  target="_blank"
+  rel="noopener noreferrer"
+> Try Spreadnext
+  </a></Button> {/* Updated text as per design */}
+            <button   onClick={() => router.push("/contact-us")}  className="rounded-full hover:cursor-pointer h-12 px-10 font-semibold bg-[#E2E8F0] text-[#0b171f] hover:bg-gray-200 transition-all">
               Request a hiring demo
             </button>
           </motion.div>

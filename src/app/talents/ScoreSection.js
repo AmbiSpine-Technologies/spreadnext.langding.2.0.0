@@ -91,7 +91,15 @@ export default function ScoreSection() {
           </p>
 
           <button className="bg-[#C9D6E4] text-[#1B1B24] px-6 py-2.5 rounded-full font-medium text-lg  hover:bg-[#b8c7d8] hover:cursor-pointer transition-all transform  ">
-            See Your Score
+                            <a 
+    href="https://spreadnext.com/signin"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center"
+  >
+          See Your Score
+  </a>
+  
           </button>
         </motion.div>
       </div>

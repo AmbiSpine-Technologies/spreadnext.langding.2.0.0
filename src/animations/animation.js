@@ -1,5 +1,5 @@
 // src/lib/animations.js
-// MNC Standard Animation Variants
+
 export const staggerContainer = {
   hidden: { opacity: 0 },
   show: {

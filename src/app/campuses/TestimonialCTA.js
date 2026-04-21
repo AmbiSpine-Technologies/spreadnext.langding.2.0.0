@@ -3,8 +3,13 @@ import { getInitials } from '@/utils/getInitialsName';
 import Button from '../components/common/button';
 import { motion } from "framer-motion";
 import { fadeIn } from "@/animations/animation"; // Make sure path is correct
+import { useRouter } from "next/navigation"; // Navigation ke liye import
+
+
 
 export default function TestimonialCTA() {
+  const router = useRouter(); // Router instance
+
   const tpoData = Array(4).fill({
     name: "Vikas Dubey",
     role: "TPO",
@@ -65,7 +70,7 @@ export default function TestimonialCTA() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-         <Button 
+         <Button onClick={() => router.push("/contact-us")} 
         className="!bg-[#0A66C2] hover:!bg-[#0554a3] !font-medium h-14"
         
         >

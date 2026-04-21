@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 import { fadeIn, scaleIn } from "@/animations/animation"; // Path check kar lena
 import Image from "next/image";
 import Button from "../../common/button";
+import { useRouter } from 'next/navigation';
+
 export default function ComplianceFooter() {
+      const router = useRouter();
   return (
     <div className="w-full">
       {/* 1. Testimonial / Quote Section */}
@@ -74,8 +77,8 @@ export default function ComplianceFooter() {
             viewport={{ once: true }}
             className="pt-6 flex justify-center"
           >
-            <Button className="bg-[#0013E3] text-white hover:bg-blue-800">
-              Enquire about specialized services <span>→</span>
+            <Button  onClick={() => router.push("/contact-us")}  className="bg-[#0013E3] text-white hover:bg-blue-800">
+              Enquire about specialized services <span className="ms-2"> →</span>
             </Button>
           </motion.div>
           </motion.div>

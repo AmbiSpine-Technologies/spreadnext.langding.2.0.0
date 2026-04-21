@@ -1,7 +1,11 @@
-// components/EnquiryForm.jsx
+
 "use client";
+
 import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { fadeIn, staggerContainer, itemVariant } from "@/animations/animation";
 import { Check, MoveRight } from "lucide-react";
+
 
 // Service options (from HTML form)
 const SERVICES = [
@@ -64,7 +68,22 @@ const CALLBACK_OPTIONS = [
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
-export default function EnquiryForm() {
+const serviceBuckets = [
+    {
+      title: "Taxation services",
+      items: ["Income tax consultancy and planning", "ITR filing for corporates, LLPs, and individuals", "GST registration, returns, and advisory", "Transfer pricing study and report", "TDS compliance and assessments", "Representation and scrutiny support"]
+    },
+    {
+      title: "Accounting & compliance",
+      items: ["Bookkeeping and accounting operations", "Cloud accounting on Tally, QuickBooks, and Xero", "Financial statements and MIS support", "Payroll processing and compliance", "Accounting system setup and controls", "ROC filing, annual returns, and secretarial work"]
+    },
+    {
+      title: "Advisory & special registrations",
+      items: ["Virtual CFO and startup advisory", "Project financing and CMA reports", "Business valuation, due diligence, and M&A support", "NRI taxation and FEMA advisory", "FSSAI, IEC, DSC, NGO and trust registration", "ESG and sustainability reporting"]
+    }
+  ];
+  
+export default function ContactServices() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -183,7 +202,7 @@ export default function EnquiryForm() {
           phone: "",
           service: "",
           otherServiceDetails: "",
-          entityType: "",
+          entitytype: "",
           city: "",
           budget: "",
           message: "",
@@ -206,54 +225,108 @@ export default function EnquiryForm() {
     }
   };
 
+  const serviceOptions = [
+    "Income Tax Consultancy", "ITR Filing", "GST Services", "Transfer Pricing",
+    "TDS Compliance", "Bookkeeping & Accounting", "Payroll Processing",
+    "Company Incorporation", "LLP Registration", "ROC Filing & Annual Returns",
+    "Virtual CFO Services", "Startup Advisory", "Project Financing / CMA Report",
+    "Business Valuation", "Due Diligence / M&A", "NRI Taxation",
+    "FSSAI Registration", "IEC Registration", "ESG Reporting", "DSC Services"
+  ];
+
   return (
-    <section className="bg-[#F8FAFC] py-20 px-6 md:px-12 lg:px-24 font-sans text-[#0A0A0A]">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
+    <div className="min-h-screen ">
+      <main className="max-w-7xl mx-auto px-6 pb-20">
         
-        {/* LEFT CONTENT - Same as before */}
-        <div className="flex flex-col items-start">
-          <span className="text-[11px] font-bold uppercase tracking-widest text-[#2563EB] bg-[#EFF6FF] border border-[#BFDBFE] px-4 py-1.5 rounded-full mb-6">
-            Business & Compliance Services
-          </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter leading-tight mb-6">
-            Talk to an expert.<br />Get the right <span className="text-[#2563EB]">advice fast.</span>
-          </h2>
-          <p className="text-[#64748B] text-lg font-light leading-relaxed mb-10 max-w-lg">
-            Whether you're filing GST, incorporating a company, or need a Virtual CFO — our partner experts respond within 24 hours. No jargon, no delays.
-          </p>
+        {/* HERO SECTION - Image 1 */}
+        <motion.section 
+          initial="hidden" whileInView="show" viewport={{ once: true }}
+          className="grid lg:grid-cols-12 gap-12 py-20 items-start"
+        >
+          <motion.div variants={fadeIn("up")} className="lg:col-span-7">
+            <span className="inline-block px-3 py-1 rounded-full bg-[#dceceb] text-[#01696f] text-[10px] font-bold uppercase tracking-widest mb-6">
+              New on SpreadNext
+            </span>
+            <h1 className="text-4xl md:text-6xl font-serif font-medium leading-[1.1] mb-8">
+              Direct tax, compliance, accounting, and advisory services in one place.
+            </h1>
+            <p className="text-lg text-gray-500 max-w-xl mb-10 leading-relaxed">
+              This page is designed as a simple lead capture surface for your inside sales team. Visitors can select the service they need.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {["Tax & GST", "ROC & Secretarial", "Accounting & Payroll", "Virtual CFO", "NRI, FSSAI, IEC, ESG"].map(tag => (
+                <span key={tag} className="px-5 py-2 bg-white border border-gray-300 rounded-full text-xs shadow-sm">{tag}</span>
+              ))}
+            </div>
+          </motion.div>
 
-          <div className="space-y-6 mb-10">
-            {[
-              { title: "Expert CA & advisory partners", desc: "Verified professionals across taxation, law, and finance" },
-              { title: "Response within 24 hours", desc: "No waiting. A dedicated expert picks up your query same day" },
-              { title: "Free first consultation", desc: "Understand your needs before any commitment" }
-            ].map((item, i) => (
-              <div key={i} className="flex gap-4">
-                <div className="w-6 h-6 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center flex-shrink-0 mt-1">
-                  <Check className="w-3.5 h-3.5 text-[#2563EB]" />
+          <motion.div variants={fadeIn("left")} className="lg:col-span-5 bg-white p-10 rounded-[32px] border border-gray-100 shadow-2xl shadow-gray-200/50">
+            <h2 className="text-3xl font-semibold mb-2">Recommended lead fields</h2>
+            <p className="text-sm text-gray-400 mb-8">Kept intentionally short so more prospects finish the form.</p>
+            <div className="space-y-4">
+              {[
+                { title: "Who they are", desc: "Name, company, work email, mobile number." },
+                { title: "What they need", desc: "Primary service, entity type, and short requirement note." },
+                { title: "Sales routing", desc: "Budget range, preferred callback, and city/state for follow-up." }
+              ].map((box, i) => (
+                <div key={i} className="bg-[#f3f0ec] p-5 rounded-2xl border border-gray-200/50">
+                  <h4 className="font-bold text-sm mb-1">{box.title}</h4>
+                  <p className="text-sm text-gray-500">{box.desc}</p>
                 </div>
-                <div>
-                  <h4 className="text-[15px] font-semibold">{item.title}</h4>
-                  <p className="text-[13px] text-[#64748B]">{item.desc}</p>
-                </div>
-              </div>
+              ))}
+            </div>
+          </motion.div>
+        </motion.section>
+
+        {/* SERVICE BUCKETS - Image 2 */}
+        <section className="mt-20">
+          <div className="mb-10">
+            <h2 className="text-4xl font-semibold mb-3">Service buckets</h2>
+            <p className="text-gray-500 max-w-2xl">Use these groups on the services page so prospects can quickly understand your offering breadth.</p>
+          </div>
+          <motion.div 
+            variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
+            className="grid md:grid-cols-3 gap-6"
+          >
+            {serviceBuckets.map((bucket, idx) => (
+              <motion.div key={idx} variants={fadeIn("up")} className="bg-white p-8 rounded-[28px] border border-gray-100 shadow-xl shadow-gray-200/30">
+                <h3 className="text-2xl font-medium mb-6">{bucket.title}</h3>
+                <ul className="space-y-4">
+                  {bucket.items.map((item, i) => (
+                    <li key={i} className="flex gap-3 text-sm text-gray-500 leading-relaxed">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#01696f] shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
+        </section>
 
-          <div className="flex items-center gap-4 p-4 bg-white border border-[#E2E8F0] rounded-xl w-full max-w-sm mb-8">
-            <div className="w-10 h-10 rounded-full bg-[#EFF6FF] flex items-center justify-center font-bold text-[#1D4ED8] text-sm">
-              CA
-            </div>
-            <div>
-              <div className="text-[14px] font-semibold">SpreadNext Advisory Team</div>
-              <div className="text-[12px] text-[#64748B]">CA & Compliance Experts · Pan India</div>
-            </div>
-            <div className="ml-auto w-2.5 h-2.5 rounded-full bg-[#16A34A] shadow-[0_0_0_3px_#F0FDF4]"></div>
+        {/* CONTACT FORM - Image 3 */}
+        <section className="mt-28">
+          <div className="mb-10">
+            <h2 className="text-4xl font-semibold mb-3">Inside sales contact form</h2>
+            <p className="text-gray-500 max-w-2xl">This structure is simple enough for higher completion rates.</p>
           </div>
-        </div>
+          
+          <div className="grid lg:grid-cols-12 gap-10">
+            {/* Sidebar info */}
+            <div className="lg:col-span-4 space-y-4">
+              {[
+                { h: "How this helps", p: "Collect a minimal but useful lead profile, then move detailed qualification to the callback." },
+                { h: "Suggested follow-up SLA", p: "Hot leads: within 30 minutes.\nGeneral enquiries: within 4 hours." },
+                { h: "Optional next step", p: "You can later connect this form to HubSpot, Zoho, or your internal CRM." }
+              ].map((card, idx) => (
+                <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                  <h4 className="font-bold text-lg mb-2">{card.h}</h4>
+                  <p className="text-sm text-gray-500 whitespace-pre-line leading-relaxed">{card.p}</p>
+                </div>
+              ))}
+            </div>
 
-        {/* RIGHT FORM CARD */}
-        <div className="relative">
+        <div className="lg:col-span-8 relative bg-white border border-gray-100">
           {!submitted ? (
             <div className="bg-white border border-[#E2E8F0] rounded-2xl p-8 md:p-10 shadow-sm">
               <h3 className="text-xl font-bold mb-1">Get in touch</h3>
@@ -462,7 +535,7 @@ export default function EnquiryForm() {
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full bg-[#2563EB] text-white p-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#1D4ED8] transition-all mt-6 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-[#0013E3] hover:cursor-pointer text-white px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#0013E3] transition-all mt-6 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Submitting..." : "Request free consultation"}
                   {!isSubmitting && <MoveRight className="w-4 h-4" />}
@@ -488,7 +561,12 @@ export default function EnquiryForm() {
             </div>
           )}
         </div>
-      </div>
-    </section>
+
+      
+          </div>
+        </section>
+      </main>
+
+    </div>
   );
 }

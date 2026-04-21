@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "@/animations/animation";
 import Image from "next/image";
 import Button from "../../common/button";
+import { useRouter } from "next/navigation";
 const STATS_DATA = [
   { target: 5, suffix: "+", label: "Years of combined partner expertise Pan-India" },
   { target: 24, suffix: " hrs", label: "Coverage across all states & UTs" },
@@ -10,6 +11,7 @@ const STATS_DATA = [
 ];
 
 export default function HeroSection() {
+  const router = useRouter()
   return (
     <section className="mt-32 px-6 pt-20 lg:px-28 !bg-white pb-20">
       <div className="max-w-7xl mx-auto">
@@ -32,7 +34,7 @@ export default function HeroSection() {
 
             </div>
         
-            <Button>
+            <Button onClick={() => router.push("/contact-us")}  className="bg-[#0277CA] hover:!bg-[#0277CA]">
  Get free consultation
             </Button>
            

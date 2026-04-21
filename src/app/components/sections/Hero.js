@@ -26,7 +26,7 @@ export default function Hero() {
   
   const handleSignup = () => {
     // setIsOpen(false); // Mobile menu band karne ke liye
-    router.push("/signup"); // Signup page par bhejne ke liye
+    router.push("/contact-us"); // Signup page par bhejne ke liye
   };
 
   return (
@@ -53,7 +53,7 @@ export default function Hero() {
           {/* 1. Animated Heading */}
           <motion.h1 
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-white leading-tight"
+            className="text-4xl md:text-5xl mt-12 font-bold text-white leading-tight"
           >
             A career platform built for India's next generation 
           </motion.h1>
@@ -77,10 +77,11 @@ export default function Hero() {
             >
               <Button 
                 onClick={handleSignup} 
-                className="text-lg px-12 py-4" // Cleaned redundant MT here
+                className="text-lg px-12 h-13 " // Cleaned redundant MT here
               >
                 Get started
               </Button>
+              
             </motion.div>
           </motion.div>
         

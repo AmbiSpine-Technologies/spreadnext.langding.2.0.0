@@ -33,10 +33,10 @@ export default function CareerSetupSection() {
           </div>
           
           <div className="mt-6 space-y-2">
-            <h2 className="text-2xl md:text-3xl font-medium text-[#1B1B24] tracking-tight">
+            <h2 className="text-2xl md:text-3xl font-semibold font-inter text-[#1B1B24] tracking-tight">
               Set up in days. Not months.
             </h2>
-            <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">
+            <p className="text-gray-500 text-lg max-w-2xl leading-relaxed font-inter">
               The faster your placement cell runs on real data, the better your outcomes. 
               We built <span className="text-[#0013E3] font-semibold">Spreadnext</span> to go live in 48 hours — so you spend less time setting up 
               and more time placing students.
@@ -53,7 +53,7 @@ export default function CareerSetupSection() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="bg-[#F1F3F9] p-8 rounded-[1.5rem] text-[#3D447E] font-medium text-base  "
+              className="bg-[#F1F3F9] p-8 rounded-[1.5rem] font-inter text-[#3D447E] font-medium text-base  "
             >
               {step}
             </motion.div>

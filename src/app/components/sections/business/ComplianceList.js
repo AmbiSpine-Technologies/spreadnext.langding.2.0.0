@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { fadeIn } from "@/animations/animation";
 import Image from "next/image";
-import Button from "../../common/button";
+import { useRouter } from 'next/navigation';
 
 
 const COMPLIANCE_DATA = [
@@ -78,6 +78,7 @@ const COMPLIANCE_DATA = [
 ];
 
 export default function ComplianceList() {
+   const router = useRouter();
   return (
 
     <section className="bg-[#275e6e] py-24 px-6 lg:px-28 text-white overflow-hidden">
@@ -114,11 +115,7 @@ export default function ComplianceList() {
                   <p className="text-gray-200 text-sm leading-relaxed">
                     {item.desc}
                   </p> 
-                  <div className="pt-4">
-                    <button className="rounded-full h-11 px-8 font-medium bg-[#1694EE80] !text-sm hover:cursor-pointer text-white hover:bg-[#0e8de880] transition-colors flex items-center gap-2">
-                      {item.button} <span className="text-xl">→</span>
-                    </button>
-                  </div>
+               
                 </div>
               </div>
 
@@ -142,6 +139,11 @@ export default function ComplianceList() {
             </motion.div>
           ))}
         </div>
+           <div className="py-5 flex justify-center">
+                    <button onClick={() => router.push("/contact-us")}  className="rounded-full h-11 px-8 font-medium bg-[#1694EE80] !text-sm hover:cursor-pointer text-white hover:bg-[#0e8de880] transition-colors flex items-center gap-2">
+                      Get free Consultation<span className="text-xl">→</span>
+                    </button>
+                  </div>
       </div>
     </section>
   );

@@ -61,12 +61,15 @@ export default function FuelYourCareer() {
           <p className="mb-8 text-lg opacity-90">
             Don’t just learn more — learn right.
           </p>
-          <Link
-            href="/skills"
+           
+           <a href="http://spreadnext.com/signin" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+           
             className="inline-block border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-[#A66565] transition-all duration-300"
           >
             Start Your Skill Journey
-          </Link>
+          </a>
         </motion.div>
 
         {/* Right Section */}

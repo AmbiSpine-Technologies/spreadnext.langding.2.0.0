@@ -1,5 +1,6 @@
 
 "use client";
+
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Check } from "lucide-react";
 
@@ -10,10 +11,10 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Mayank Shrivasta",
+      name: "Mayank Shrivastava",
       role: "CMO",
       location: "Rewa",
-      avatar: "RT",
+      avatar: "/mayank..jpg",
       verified: true,
       quote:
         "Spreads helped me craft a true digital identity — where my projects, passions, and personality all helped unlock real job offers. What I loved most? The balance of storytelling and opportunity. I didn't just apply — I was discovered for who I am.",
@@ -24,7 +25,7 @@ const TestimonialsSection = () => {
       name: "Aditya Shrivasta",
       role: "Director",
       location: "Rewa",
-      avatar: "VD",
+      avatar: "/aditya.jpg",
       verified: true,
       quote:
         "Spreads didn't just match me to a job — it gave me space to express my story, showcase my work, and connect with hiring teams who actually cared. I felt guided at every step, from uploading my resume to final onboarding. It's more than a job portal — it's where my real career chapter began.",
@@ -35,23 +36,24 @@ const TestimonialsSection = () => {
       name: "Shivanshu Dubey",
       role: "Admin and Sales",
       location: "Rewa",
-      avatar: "NK",
+       avatar: "/shivanshu.jpg",
+     
       verified: true,
       quote:
         "With Spreads, I built a microblog that reflected who I really am — not just what's on my resume. That personal touch helped me attract recruiters and collaborators who share my vision. This platform celebrates personality, not just polished profiles. I finally felt like I belonged in the professional world.",
       bgGradient: "from-green-400 to-blue-400",
     },
-    {
-      id: 4,
-      name: "Rupendra Vishwkarma",
-      role: "Software Developer",
-      location: "Hyderabad",
-      avatar: "SI",
-      verified: true,
-      quote:
-        "From AI-matched job roles to real conversations with hiring teams, Spreads is built for our generation. The resume parser, auto-interview scheduling, and skill testing made the process feel smooth and transparent. I wasn't guessing anymore — I was growing. This isn't just job search. It's a professional journey.",
-      bgGradient: "from-orange-400 to-red-400",
-    },
+    // {
+    //   id: 4,
+    //   name: "Rupendra Vishwkarma",
+    //   role: "Software Developer",
+    //   location: "Hyderabad",
+    //   avatar: "/rupendra.jpg",
+    //   verified: true,
+    //   quote:
+    //     "From AI-matched job roles to real conversations with hiring teams, Spreads is built for our generation. The resume parser, auto-interview scheduling, and skill testing made the process feel smooth and transparent. I wasn't guessing anymore — I was growing. This isn't just job search. It's a professional journey.",
+    //   bgGradient: "from-orange-400 to-red-400",
+    // },
   ];
 
   useEffect(() => {
@@ -108,11 +110,8 @@ const TestimonialsSection = () => {
                 <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
                   <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-10 mx-auto max-w-4xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
                     <div className="flex items-center mb-8">
-                      <div
-                        className={`w-16 h-16 rounded-full bg-gradient-to-r ${testimonial.bgGradient} flex items-center justify-center text-white font-bold text-lg mr-4 shadow-lg`}
-                      >
-                        {testimonial.avatar}
-                      </div>
+                        <img src= {testimonial.avatar} className="w-16 h-16 rounded-full m-2 object-cover" />
+                    
                       <div className="flex-1">
                         <div className="flex items-center mb-1">
                           <h3 className="text-xl font-bold text-gray-900 mr-2">
@@ -173,31 +172,7 @@ const TestimonialsSection = () => {
 
       </div>
 
-      <style jsx>{`
-        @keyframes blob {
-          0% {
-            transform: translate(0px, 0px) scale(1);
-          }
-          33% {
-            transform: translate(30px, -50px) scale(1.1);
-          }
-          66% {
-            transform: translate(-20px, 20px) scale(0.9);
-          }
-          100% {
-            transform: translate(0px, 0px) scale(1);
-          }
-        }
-        .animate-blob {
-          animation: blob 7s infinite;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
-      `}</style>
+
     </section>
   );
 };

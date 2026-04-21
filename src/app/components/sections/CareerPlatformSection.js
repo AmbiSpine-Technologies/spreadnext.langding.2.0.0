@@ -44,10 +44,19 @@ export default function CareerPlatformSection() {
            
                 <Button 
                             // onClick={handleSignup} 
-                            className="!bg-[#0A66C2] !font-semibold py-1" // Cleaned redundant MT here
+                            className="!bg-[#0A66C2]" // Cleaned redundant MT here
                           >
-                              Request a campus demo  <MoveRight className="w-5 h-5 mx-4" />
+                              <a 
+    href="https://spreadnext.com/signin"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center"
+  >
+    Request a campus demo
+    <MoveRight className="w-5 h-5 ml-2" />
+    </a>
                           </Button>
+                          
             </div>
          
           </motion.div>
