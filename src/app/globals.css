@@ -15,6 +15,8 @@
   --font-inter: var(--font-inter);
   --font-open-sans: var(--font-open-sans);
   --font-roboto: var(--font-roboto);
+  --font-nanum: var(--font-nanum);
+  --font-tauri: var(--font-tauri);
 }
 
 @media (prefers-color-scheme: dark) {

@@ -4,7 +4,9 @@ import {
   Poppins, 
   Inter, 
   Open_Sans, 
-  Roboto 
+  Roboto,
+  Nanum_Myeongjo,
+  Tauri
 } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/layout/footer";  
@@ -23,6 +25,16 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
+const nanum = Nanum_Myeongjo({
+  weight: ["400", "700", "800"],
+  subsets: ['latin'],
+  variable: '--font-nanum', // CSS variable define karein
+});
+const tauri = Tauri({
+  weight: '400', // Tauri mein sirf 400 weight hi hota hai
+  subsets: ['latin'],
+  variable: '--font-tauri',
+});
 // 2. Inter (Professional UI font)
 const inter = Inter({
   subsets: ["latin"],
@@ -67,6 +79,8 @@ export default function RootLayout({ children }) {
         ${inter.variable} 
         ${openSans.variable} 
         ${roboto.variable} 
+        ${tauri.variable}
+        ${nanum.variable}
         h-full antialiased
       `}
     

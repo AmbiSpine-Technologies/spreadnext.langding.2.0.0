@@ -20,7 +20,7 @@ export default function Home() {
        <TrendingJobs />
        <BuildMatch />
        <TestimonialsSection />
-      <TrustedSection />
+       <TrustedSection />
   
      
       </main>

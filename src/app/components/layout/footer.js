@@ -73,7 +73,7 @@ const Footer = () => {
             <ul className="flex flex-col gap-1">
               {["About Us", "Contact", "Privacy Policy", "Help Center", "Careers"].map((link) => (
                 <li key={link}>
-                  <Link href="#" className="text-gray-500 font-inter hover:text-[#0013E3] text-[13px] transition-colors font-medium">{link}</Link>
+                  <Link href={`/${link.toLowerCase().replace(/\s+/g, '-')}`} className="text-gray-500 font-inter hover:text-[#0013E3] text-[13px] transition-colors font-medium">{link}</Link>
                 </li>
               ))}
             </ul>
